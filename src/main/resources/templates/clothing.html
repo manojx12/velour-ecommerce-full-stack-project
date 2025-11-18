@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en"
+
+xmlns:th="http://www.thymeleaf.org"
+      >
+
+      <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing </title>
+    <link rel="stylesheet" th:href="@{/css/clothing.css}">
+</head>
+<body >
+
+   <!-- <img class="logo" th:src="@{/img/velour-logo-v2-white.svg}" alt="velour logo"></div>  -->
+
+       <div th:replace="navbar :: navbarContent"></div>
+      <div class="clothing-page"  th:fragment="clothingContent">
+      
+ <div class="container">
+  <h2 class="best-seller-title">OUR BEST SELLER   </h2>
+</div>
+</section> 
+
+ <main class="container-product-listing">
+ 
+ <article>
+    <a href="">
+      <img th:src="@{/img/cut-off-main-9.webp}" alt="cut-off">
+    </a>
+    <div class="product-meta">
+<p class="brand">MOE</p>
+<h3 class="product-name">Cut-off dress</h3>
+</div>
+<P class="price">130000</P>
+  </article>  
+  
+
+
+<article class="product-card">
+  <a href="">
+    <img th:src="@{/img/midi-serenity-main-1.webp}" alt="serenity">
+  </a>
+  <div class="product-meta">
+    <p class="brand"> MAKEOVER</p>
+    <h3 class="product-name">Serenity dress</h3>
+    <p class="price">147900</p>
+  </div>
+</article> 
+
+
+  <article class="product-card">
+  <a href="">
+    <img th:src="@{/img/pink-dress.webp}" alt="pink-dress">
+  </a>
+   <div class="product-card">
+  <p class="brand">MOE</p>
+  <h3 class="product-name"> Dress tied at the waist </h3>
+  <p class="price"> 137490</p>
+  </div>
+ </article>
+
+ 
+ 
+  <article>
+    <a href="">
+      <img th:src="@{/img/maxi-2.webp}" alt="maxi">
+    </a>
+    <div class="product-card">
+      <p class="brand">MAKEOVER</p>
+      <h3>Dress Sailor Galaxia</h3>
+      <p class="price">120440</p>
+    </div>
+  </article>
+</main>
+  
+
+</div>
+
+
+    
+</body>
+</html> 
+

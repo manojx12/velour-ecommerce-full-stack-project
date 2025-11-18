@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing</title>
+  <link rel="stylesheet" th:href="@{/css/clothing.css}">
+</head>
+<body>
+
+  <!-- navbar fragment (unchanged) -->
+  <div th:replace="navbar :: navbarContent"></div>
+
+  <div class="clothing-page" th:fragment="clothingContent">
+    <div class="container">
+      <h2 class="best-seller-title">OUR BEST SELLER</h2>
+    </div>
+
+    <main class="container-product-listing">
+      <!-- iterate products list from controller -->
+      <article th:each="product : ${products}" class="product-card">
+        <!-- Link to dynamic product page using product.id -->
+        <a th:href="@{/product/{id}(id=${product.id})}">
+          <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+        </a>
+
+        <div class="product-meta">
+          <p class="brand" th:text="${product.brand != null ? product.brand : 'BRAND'}">MOE</p>
+          <h3 class="product-name" th:text="${product.name}">Product name</h3>
+          <p class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}">130000</p>
+        </div>
+      </article>
+    </main>
+  </div>
+
+</body>
+</html>

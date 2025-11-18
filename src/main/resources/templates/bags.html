@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+ xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bags</title>
+    <link rel="stylesheet" th:href="@{/css/bags.css}">
+    
+</head >
+<body  >
+     <div th:replace="navbar :: navbarContent"></div>
+     <div class="bag-head">
+        
+     <h6 class="left-text">
+     Discover new collection
+     </h6>
+     <h1 class="autumn">AUTUMN </h1>
+     <h1 class="winter">WINTER '25</h1>
+     <a href="" class="check-now">Check Now </a>
+</div>
+
+
+
+ <div class="bags-page" th:fragment="bagsContent">
+<div class="bags-product-container">
+<article>
+     <a href="">
+          <img th:src="@{/img/rylko-bag-1.webp}" alt="bag-img">
+     </a>
+     <div class="bag-detail">
+          <p class="brand">RYŁKO</p>
+          <h3>Elegant handbag</h3>
+          <p class="price">113256</p>
+     </div>
+</article>
+
+ <article class="bag-card">
+     <a href="">
+          <img th:src="@{/img/rylko-bag-2.webp}" alt="">
+     </a>
+     <div class="bag-detail">
+          <p class="brand">RYŁKO</p>
+          <h3>Platinum handbag with decorative flap</h3>
+          <p class="brand">218620</p>
+     </div>
+ </article>
+
+ <article class="bag-card">
+     <a href="">
+          <img th:src="@{/img/rylko-bag-3.webp}" alt="">
+     </a>
+     <div class="bag-detail">
+          <p>RYŁKO</p>
+          <h3>Elegant handbag with gold details</h3>
+          <p class="price">329789</p>
+     </div>
+ </article>
+
+ <article>
+     <a href="">
+          <img th:src="@{/img/rylko-bag-4.webp}" alt="">
+     </a>
+     <div class="bag-detail">
+          <p>RYŁKO</p>
+          <h3>Elegant leopard-print handbag</h3>
+          <p class="price">125390</p>
+     </div>
+ </article>
+</div>
+</div>
+
+</body>
+</html>

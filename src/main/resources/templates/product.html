@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${product.name}">Product</title>
+  <link rel="stylesheet" th:href="@{/css/clothing.css}">
+  <style>
+    /* minimal inline layout so it looks fine out-of-the-box */
+    .detail-wrap{max-width:900px;margin:30px auto;padding:16px}
+    .detail-img{float:left;width:40%;margin-right:20px}
+    img{width:100%;border-radius:6px}
+    .clear{clear:both}
+  </style>
+</head>
+<body>
+
+  <div th:replace="navbar :: navbarContent"></div>
+
+  <div class="detail-wrap">
+    <a th:href="@{/products}">← Back to products</a>
+
+    <div class="detail-img">
+      <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+    </div>
+
+    <h1 th:text="${product.name}">Product name</h1>
+    <p class="brand" th:text="${product.brand}">Brand</p>
+    <p th:text="${product.description}">Full product description here.</p>
+    <p><strong>Price:</strong> ₹<span th:text="${product.price}">0.0</span></p>
+
+    <div class="clear"></div>
+  </div>
+
+</body>
+</html>

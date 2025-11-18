@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+ xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+</head>
+<body>
+    <div class="navbar" th:fragment="navbarContent">
+       <nav>
+        <ul>
+            <li><a th:href="@{/clothing}">Clothing</a></li>
+            <li><a th:href="@{/bags}">Bags</a></li>
+            <li><a th:href="@{/sale}">Sale</a></li>
+        </ul>
+    </nav>
+     <img class="logo" th:src="@{/img/velour-logo-v2-white.svg}" alt="velour logo">
+     
+
+    
+         <a class="login-icons" th:href="@{/login}">
+    <img th:src="@{/icons/account.png}" alt="login">
+</a>
+
+</div>
+    
+</body> 
+</html>

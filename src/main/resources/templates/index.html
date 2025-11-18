@@ -1,0 +1,62 @@
+
+
+ <!DOCTYPE html>
+ <html lang="en" 
+    xmlns:th="http://www.thymeleaf.org"
+    >
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ecommerce </title>
+    <link rel="stylesheet"  th:href="@{/css/style.css}">
+    <!-- <link rel="stylesheet" th:href="@{/css/bags.css}"> -->
+ <link rel="stylesheet" th:href="@{/css/clothing.css}"> 
+ <!-- <link rel="stylesheet" th:href="@{/css/login.css}"> -->
+ </head>
+ <body  >
+
+   
+
+   <div class="navbar" th:replace="navbar :: navbarContent"></div>
+  <main class="home-page"> 
+  
+  
+    <div >
+  
+   
+   <!-- <img class="logo" th:src="@{/img/velour-logo-v2-white.svg}" alt="velour logo"></div> -->
+
+  <div class="promo-line">
+  <span>Up to <strong>50% off</strong> this Black Friday</span>
+  </div>
+
+ <div class="main-headline">BLACK FRIDAY</div>
+
+  <div class="btn-wrap">
+   <a href="" class="cta-btn">Discover Now</a>
+  </div>
+
+ </main>
+ 
+
+ <div class="clothing-page"  th:replace="clothing :: clothingContent"></div> 
+ 
+ <div class="bags-page" th:replace="bags:: bagsContent"></div>
+ <!-- <div th:replace="bags :: bagsContent"></div>  -->
+<!-- <div class="bags-page"> 
+  
+</div> -->
+
+
+<script th:src="@{script.js}"></script>
+ </body>
+
+ </html>
+
+
+
+
+
+
+
+
