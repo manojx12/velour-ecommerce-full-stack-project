@@ -1,52 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> Ecommerce </title>
-   <link rel="stylesheet" th:href="@{/css/style.css}">
-   <link rel="stylesheet" th:href="@{/css/clothescategory.css}">
-   
-   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ecommerce </title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/clothescategory.css}">
+
+
 </head>
 
 <body>
 
 
 
-   <div class="navbar" th:replace="navbar :: navbarContent"></div>
-   <main class="home-page" layout:fragment="content">
+    <div class="navbar" th:replace="navbar :: navbarContent"></div>
+    <main class="home-page" layout:fragment="content">
 
 
-      <div>
-
-
-
-         <div class="promo-line">
-            <span>Up to <strong>50% off</strong> this Black Friday</span>
-         </div>
-
-         <div class="main-headline">BLACK FRIDAY</div>
-
-         <div class="btn-wrap">
-            <a href="" class="cta-btn">Discover Now</a>
-         </div>
-
-   </main>
+        <div>
 
 
 
-    <!-- clothing card -->
-    <div  th:fragment="clothesCategory(clothes)"   class="clothing-dynamic-page" th:each="c : ${clothes}">
+            <div class="promo-line">
+                <span>Up to <strong>50% off</strong> this Black Friday</span>
+            </div>
+
+            <div class="main-headline">BLACK FRIDAY</div>
+
+            <div class="btn-wrap">
+                <a href="" class="cta-btn">Discover Now</a>
+            </div>
+
+    </main>
+
+  <!-- clothing-dynamic-page -->
+
+
+  
+    <div class="clothing-dynamic-page" th:each="c : ${clothes}">
         <a th:href="@{/clothe-details/{id}(id=${c.id})}">
             <div class="card-clothe-cate">
-                
+
                 <img class="card-clothe-img" th:src="@{/admin/cloth/image/{id}(id=${c.id})}" alt="dress" />
 
-               
+
                 <div class="card-body">
                     <h5 class="card-title" th:text="${c.name}"></h5>
                     <div class="card-title-center">
@@ -59,7 +58,26 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     </div>
 
 
+<!-- bags-dynamic-page -->
 
+    <div class="bags-dynamic-page">
+        <div th:each="b : ${bags}">
+            <a th:href="@{/bags-details/{id}(id=${b.id})}">
+                <div class="bags-card">
+                    <img th:src="@{'/admin/cloth/image/' + ${b.id}}" alt="bag-Image" />
+                    <div class="bags-body">
+                        <h5 class="bags-title" th:text="${b.name}">name</h5>
+                        <div class="bags-card-title-center">
+                            <span th:text="${b.discountPrice}"></span>
+                            <small>
+                                <small th:text="${b.sellingPrice}"> price </small></small>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
 
 
 

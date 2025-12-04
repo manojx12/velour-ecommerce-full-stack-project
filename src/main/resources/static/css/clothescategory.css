@@ -20,6 +20,22 @@ a{
   text-decoration: none;
 }
 
+.card-body, 
+.card-body .card-title, 
+.card-body .card-title-center span, 
+.card-body small span {
+    color: black;
+}
+
+.card-title-center {
+    display: flex;
+    flex-direction: column; /* puts discountPrice above sellingPrice */
+    align-items: center;     /* centers horizontally */
+    text-align: center;
+
+    margin-bottom: 10%;
+}
+
 /* Card styling */
 .card-clothe-cate {
     border: 1px solid #ddd;

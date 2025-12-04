@@ -21,7 +21,8 @@ public class PageController {
     @GetMapping("/")
     public String index(Model model){
  
-    
+ model.addAttribute("clothes",clotheRepository.findByCategory(Category.CLOTHE));
+   model.addAttribute("bags",clotheRepository.findByCategory(Category.BAGS));    
          return "index";
     }
     

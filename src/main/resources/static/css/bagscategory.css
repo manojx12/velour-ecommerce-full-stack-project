@@ -34,10 +34,15 @@ a{
 }
 
 .bags-title {
-    font-size: 18px;
+    font-size: 7px;
     font-weight: bold;
     margin-bottom: 5px;
 }
+
+.bags-body * {
+    color: black;
+}
+
 
 .bags-card-title-center {
     display: flex;
