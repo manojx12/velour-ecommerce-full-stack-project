@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> UPDATE PAGE </title>
+
+    <link rel="stylesheet" th:href="@{/css/updateClothes.css}">
+    <!-- <link rel="stylesheet" th:href="@{/css/addClothes.css}"> -->
+</head>
+<body>
+    
+    <div>
+ <div class="head">
+<h1> UPDATE CLOTHES </h1>
+ </div>
+
+<form th:action="@{/admin/cloth/update}" method="post"  th:object="${clothe}" enctype="multipart/form-data">
+
+<input type="hidden" th:field="*{id}">
+<div>
+    <label class="form-label" for=""> Name</label>
+    <input type="text" name="" id="name" th:field="*{name}">
+</div>
+
+<div class="form-cate">
+<label class="form-label" for="">category</label>
+<select type="text" class="from-select" th:field="*{category}">
+<option th:each="cat:${categories}"  th:value="${cat}"   th:text="${cat}"
+th:selected="${cat}==${clothe.category}"></option>
+    </select>
+</div>
+
+
+<div class="small-des">
+
+<label for=""> Short Description</label>
+<input type="text" th:field="*{shortDescription}">
+</div>
+
+
+<div class="desc"> 
+    <label for="">Description</label>
+    <input type="text" name="" id="Description" th:field="*{description}">
+</div>
+
+<div class="selling-price">
+
+    <label for="">Selling Price </label>
+    <input type="text" th:field="*{sellingPrice}">
+</div>
+
+<div class="discountedprice">
+    <label for="">Discount Price </label>
+    <input type="text" th:field="*{discountPrice}">
+</div>
+
+
+<div class="form-img">
+<label for=""> IMAGE</label>
+<div th:if="${clothe.clothesImage !=null}"></div>
+ <img th:src="@{'/admin/cloth/image'+ ${clothe.id}}" alt="clothe img">
+</div>
+<div class="change-img">
+<label for=""> Change Image</label>
+<input type="file"  name="imageFile">
+</div>
+
+<div class="update-btn">
+
+    <button type="submit" > Update Clothe</button>
+    <a th:href="@{/admin/cloth}">Cancel</a>
+</div>
+</form>
+
+
+    </div>
+</body>
+</html>

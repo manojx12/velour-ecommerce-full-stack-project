@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> View Clothes page </title>
+    <link rel="stylesheet" th:href="@{/css/viewClothes.css}">
+
+</head>
+<body>
+    
+
+    <div>
+<h1>Clothes Management </h1>
+<a th:href="@{/admin/cloth/add}">VIEW  CLOTHE </a>    
+</div>
+
+<div class="">
+<div class="">
+
+<table class="">
+<thead>
+<tr>
+
+    <th>#</th>
+<th>Name</th>
+<th>category</th>
+<th>Selling Price</th>
+<th>Discounted Price </th>
+    <th>Image </th>
+    <th>Action </th>
+</tr>
+    
+</thead>
+
+<tbody>
+
+    <tr th:each="clothe :${clothes}">
+<td th:text="${clothe.id}"></td>
+<td th:text="${clothe.name}"></td>
+<td th:text="${clothe.category}"></td>
+<td th:text ="${clothe.sellingPrice}"></td>
+<td th:text="${clothe.discountPrice}"></td>
+
+<td>
+    <div th:if="${clothe.clothesImage !=null}">
+
+        <img th:src="@{'/admin/cloth/image/' + ${clothe.id}}" alt="clothe" >
+    </div>
+
+    <div th:if="${clothe.clothesImage == null}"> NO Image</div>
+</td>
+
+<td>
+
+<!-- <td th:text="${clothe.shortDescription}"></td>
+<td th:text ="${clothe.description}"></td>     -->
+
+
+
+
+
+
+
+    <a th:href="@{/admin/cloth/update/{id}(id=${clothe.id})}"> Edit</a>
+
+    <a th:href="@{/admin/cloth/delete/{id}(id=${clothe.id})}"  onclick="return confirm('Are you sure ? ')">Delete</a>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+</div>
+
+</div>
+    
+</body>
+</html>

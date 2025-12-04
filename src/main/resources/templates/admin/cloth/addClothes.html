@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD CLOTHES PAGE </title>
+     <link rel="stylesheet" th:href="@{/css/addClothes.css}">
+</head>
+
+
+<body>
+    <div class="head" >
+        Add New Clothes
+    </div>
+
+    <form th:action="@{/admin/cloth/add}"  th:object="${clothe}" method="post" enctype="multipart/form-data">
+
+<div class="add-name">
+<label for="name"> Name </label>
+<input th:field="*{name}" id="name"   type="text" placeholder="Enter Your Clothes Name"  required>
+
+</div>
+
+
+<div class="cat-add">
+<label for="category">Category </label>
+
+<select th:field="*{category}"  id="category" required>
+
+    <option value="">---Select---</option>
+
+    <option th:each="cat : ${categories}" 
+    th:value="${cat}" 
+     th:text="${cat}">
+    </option>
+</select>
+
+
+</div>
+<div class="cate-add">
+
+    <label for="shortDescription"> Short Description</label>
+  <input th:field="*{shortDescription}" id="shortDescription" type="text"  placeholder="Enter  Your Short Description"  required>
+
+
+</div>
+
+<div class="add-description">
+<textarea th:field="*{description}"   id="addDescription"  placeholder="Enter Full Description of Clothes "></textarea>
+
+</div>
+
+
+
+<div class="Selling-price ">
+
+    <label for="sellingPrice"> Selling Price </label>
+    <input th:field="*{sellingPrice}"  type="number" placeholder="Enter Yore Selling Price ">
+</div>
+<div class="discounted-price">
+
+    <label for="discountPrice">Discounted Price</label>
+    <input th:field="*{discountPrice}" id="discountPrice"   type="number" placeholder="Enter Your Discounted Price ">
+
+</div>
+
+<div class="cloth-img">
+
+    <label for="clothesImage"  > Clothes Image</label>
+    <input type="file"  name="imageFile" id="clothesImage" accept="image/*" >
+</div>
+
+<button type="submit">Add Clothe</button>
+<a th:href="@{/admin/cloth}">Cancel</a>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

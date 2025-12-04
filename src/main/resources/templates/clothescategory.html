@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+ xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothes Category</title>
+
+    <link rel="stylesheet" th:href="@{/css/clothescategory.css}">
+    <link rel="stylesheet"  th:href="@{/css/style.css}">
+
+</head>
+<body>
+   
+   <div class="navbar" th:replace="navbar :: navbarContent"></div>
+    
+
+
+    
+    <div   class="clothing-dynamic-page" th:each="c : ${clothes}">
+        <a th:href="@{/clothe-details/{id}(id=${c.id})}">
+            <div class="card-clothe-cate">
+                
+                <img class="card-clothe-img" th:src="@{/admin/cloth/image/{id}(id=${c.id})}" alt="dress" />
+
+               
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${c.name}"></h5>
+                    <div class="card-title-center">
+                        <span th:text="${c.discountPrice}"></span>
+                        <small><span th:text="${c.sellingPrice}"></span></small>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+</body>
+</html>

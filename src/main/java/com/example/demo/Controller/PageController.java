@@ -1,12 +1,23 @@
-package com.example.demo.Controller;
+package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.aspectj.internal.lang.annotation.ajcDeclareAnnotation;
+
+import com.example.demo.model.enums.Category;
+import com.example.demo.repository.ClotheRepository;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 @Controller
 public class PageController {
+
+
+  private final ClotheRepository clotheRepository ;
+
+   public  PageController(ClotheRepository clotheRepository){
+    this.clotheRepository=clotheRepository;
+}
+
     @GetMapping("/")
     public String index(Model model){
  
@@ -17,7 +28,7 @@ public class PageController {
 
 
     @GetMapping("/about")
-    public String about (){
+    public String about (){ 
         return "about";
 
     }
@@ -27,11 +38,25 @@ public class PageController {
 return "contact";
     }
 
-    @GetMapping("clothing")
-    public String clothing(){
-        return "clothing" ;
+    
+@GetMapping ("/admin/cloth/clothescategory")
+public String clothescategory(Model model){
 
-    }
+ model.addAttribute("clothes", clotheRepository.findByCategory(Category.CLOTHE));
+
+    return "clothescategory";
+}
+     
+@GetMapping("/admin/cloth/bagscategory")
+public String bagscategory(Model model){
+
+
+
+       model.addAttribute("bags",clotheRepository.findByCategory(Category.BAGS));
+    return "bagscategory";
+
+}
+
 
      @GetMapping("/bags")
     public String bags(){
@@ -39,7 +64,9 @@ return "contact";
     }
 
     @GetMapping("/sale")
-    public String sale (){
+    public String sale (Model model){
+ model.addAttribute("clothes",clotheRepository.findByCategory(Category.CLOTHE));
+   model.addAttribute("bags",clotheRepository.findByCategory(Category.BAGS));
         return "sale";
     }
     @GetMapping("/login")
@@ -47,4 +74,8 @@ return "contact";
         return "login" ;
     }
 
+
+
+    
 }
+

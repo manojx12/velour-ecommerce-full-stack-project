@@ -1,0 +1,51 @@
+/* Container for all products */
+.bags-dynamic-page {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px;
+    margin-top: 10%; 
+    padding: 20px;
+}
+
+/* Each product card */
+.bags-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+a{
+    text-decoration: none;
+}
+
+/* Product image */
+.bags-card img {
+    width: 100%;
+    height: 260px;
+    object-position: top; 
+    object-fit: cover;
+    display: block;
+}
+
+/* Card Body */
+.bags-body {
+    padding: 10px;
+}
+
+.bags-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bags-card-title-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bags-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}

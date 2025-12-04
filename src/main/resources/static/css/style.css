@@ -64,16 +64,22 @@ nav ul li a:hover {
 .home-page {
   
   height: 100vh;  
-        
+        width: 100vw;
   display: flex;
     background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
    background-image:url(/img/logo-img.webp); 
   flex-direction: column;
+  background-position:center ;
+  object-fit: cover;
+  background-size: cover;
   align-items: center;     
   justify-content: center;
   position: relative;       /* safe positioning context for children */
-  /* z-index: 1; */
+  
+  left: 50%;
+  margin-left: -50vw;
+  z-index: 1;
 }
 .promo-line {
  position: relative;
@@ -248,4 +254,108 @@ border: 1px solid #fff;
     cursor:pointer;
 }
 
+/* Each product card */
+.clothing-dynamic-page {
+    width: 23%;      /* roughly 4 per row */
+    margin: 1%;      /* space between cards */
+    float: left;
+margin-top: 10%;
+    
+      
+    box-sizing: border-box;
+}
 
+/* Clear floats after rows */
+section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* Card styling */
+.card-clothe-cate {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.card-clothe-img {
+      width: 100%;
+    height: 250px;      
+    object-fit: cover;   
+    object-position: top; 
+    display: block; 
+  }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .clothing-dynamic-page {
+        width: 48%;  /* 2 per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .clothing-dynamic-page {
+        width: 100%; /* 1 per row */
+        margin: 0 0 20px 0;
+    }
+}
+
+/* Container for all products */
+.bags-dynamic-page {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px;
+    margin-top: 10%; 
+    padding: 20px;
+}
+
+/* Each product card */
+.bags-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+a{
+    text-decoration: none;
+}
+
+/* Product image */
+.bags-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Card Body */
+.bags-body {
+    padding: 10px;
+}
+
+.bags-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bags-card-title-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bags-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}

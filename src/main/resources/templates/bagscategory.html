@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bags Dynamic Page</title>
+
+    <link rel="stylesheet" th:href="@{/css/bagscategory.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+    <div class="navbar" th:replace="~{navbar :: navbarContent}"></div>
+
+    <div class="bags-dynamic-page">
+        <div th:each="b : ${bags}">
+            <a th:href="@{/bags-details/{id}(id=${b.id})}">
+                <div class="bags-card">
+                    <img th:src="@{'/admin/cloth/image/' + ${b.id}}" alt="bag-Image" />
+                    <div class="bags-body">
+                        <h5 class="bags-title" th:text="${b.name}">name</h5>
+                        <div class="bags-card-title-center">
+                            <span th:text="${b.discountPrice}"></span>
+                            <small>
+                                <small th:text="${b.sellingPrice}"> price </small></small>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
